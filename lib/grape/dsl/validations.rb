@@ -22,6 +22,10 @@ module Grape
         def params(&block)
           Grape::Validations::ParamsScope.new(api: self, type: Hash, &block)
         end
+        
+        def headers(&block)
+          Grape::Validations::HeadersScope.new(api: self, type: Hash, &block)
+        end
 
         def document_attribute(names, opts)
           setting = description_field(:params)

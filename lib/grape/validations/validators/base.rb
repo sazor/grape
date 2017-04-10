@@ -25,9 +25,11 @@ module Grape
       # @param request [Grape::Request] the request currently being handled
       # @raise [Grape::Exceptions::Validation] if validation failed
       # @return [void]
+      # @param [Object] type
       def validate(request)
-        return unless @scope.should_validate?(request.params)
-        validate!(request.params)
+        data_type = scope.is_a?(HeadersScope) ? :headers : :params
+        return unless @scope.should_validate?(request.send(data_type))
+        validate!(request.send(data_type))
       end
 
       # Validates a given parameter hash.
@@ -81,6 +83,10 @@ module Grape
       def fail_fast?
         @fail_fast
       end
+
+      protected
+
+      attr_reader :scope
     end
   end
 end

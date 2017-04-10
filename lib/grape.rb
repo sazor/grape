@@ -151,6 +151,7 @@ module Grape
       autoload :Validations
       autoload :Logger
       autoload :Desc
+      autoload :Headers
     end
   end
 
@@ -186,6 +187,7 @@ require 'grape/validations/validators/presence'
 require 'grape/validations/validators/regexp'
 require 'grape/validations/validators/values'
 require 'grape/validations/params_scope'
+require 'grape/validations/headers_scope'
 require 'grape/validations/validators/all_or_none'
 require 'grape/validations/types'
 

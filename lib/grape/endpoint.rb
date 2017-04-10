@@ -1,4 +1,5 @@
 require 'grape/middleware/stack'
+require 'pry-byebug'
 
 module Grape
   # An Endpoint is the proxy scope in which all routing
